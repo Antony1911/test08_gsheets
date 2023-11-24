@@ -5,112 +5,38 @@ import pyperclip
 
 
 def get_checklist_for_partner():
-    # row_list = ['Name', 'CMS key', 'Основа', f'{partner_name}']
-    # col_list = [['По телефону по умолчанию', 'isDefaultLoginByPhone = true', False, True],
-    #             ['E-mail и ID', 'isAllowedLoginByEmailAndId = true', False, True],
-    #             ['Логин', 'isAllowedLoginByLogin = false', False, True],
-    #             ['Ввод кода страны вручную', 'isAllowedCustomPhoneCodeInput = true', False, True],
-    #             ['Через соц. сети', 'isAllowedLoginBySocial = false', False, True],
-    #             ['По телефону по умолчанию', 'isDefaultLoginByPhone = true', False, True],
-    #             ['E-mail и ID', 'isAllowedLoginByEmailAndId = true', False, True],
-    #             ['Логин', 'isAllowedLoginByLogin = false', False, True],
-    #             ['Ввод кода страны вручную', 'isAllowedCustomPhoneCodeInput = true', False, True],
-    #             ['Через соц. сети', 'isAllowedLoginBySocial = false', False, True],
-    #             ['По телефону по умолчанию', 'isDefaultLoginByPhone = true', False, True],
-    #             ['E-mail и ID', 'isAllowedLoginByEmailAndId = true', False, True],
-    #             ['Логин', 'isAllowedLoginByLogin = false', False, True],
-    #             ['Ввод кода страны вручную', 'isAllowedCustomPhoneCodeInput = true', False, True],
-    #             ['Через соц. сети', 'isAllowedLoginBySocial = false', False, True],
-    #             ['По телефону по умолчанию', 'isDefaultLoginByPhone = true', False, True],
-    #             ['E-mail и ID', 'isAllowedLoginByEmailAndId = true', False, True],
-    #             ['Логин', 'isAllowedLoginByLogin = false', False, True],
-    #             ['Ввод кода страны вручную', 'isAllowedCustomPhoneCodeInput = true', False, True],
-    #             ['Через соц. сети', 'isAllowedLoginBySocial = false', False, True],
-    #             ['По телефону по умолчанию', 'isDefaultLoginByPhone = true', False, True],
-    #             ['E-mail и ID', 'isAllowedLoginByEmailAndId = true', False, True],
-    #             ['Логин', 'isAllowedLoginByLogin = false', False, True],
-    #             ['Ввод кода страны вручную', 'isAllowedCustomPhoneCodeInput = true', False, True],
-    #             ['Через соц. сети', 'isAllowedLoginBySocial = false', False, True],
-    #             ['По телефону по умолчанию', 'isDefaultLoginByPhone = true', False, True],
-    #             ['E-mail и ID', 'isAllowedLoginByEmailAndId = true', False, True],
-    #             ['Логин', 'isAllowedLoginByLogin = false', False, True],
-    #             ['Ввод кода страны вручную', 'isAllowedCustomPhoneCodeInput = true', False, True],
-    #             ['Через соц. сети', 'isAllowedLoginBySocial = false', False, True],
-    #             ['По телефону по умолчанию', 'isDefaultLoginByPhone = true', False, True],
-    #             ['E-mail и ID', 'isAllowedLoginByEmailAndId = true', False, True],
-    #             ['Логин', 'isAllowedLoginByLogin = false', False, True],
-    #             ['Ввод кода страны вручную', 'isAllowedCustomPhoneCodeInput = true', False, True],
-    #             ['Через соц. сети', 'isAllowedLoginBySocial = false', False, True],
-    #             ['По телефону по умолчанию', 'isDefaultLoginByPhone = true', False, True],
-    #             ['E-mail и ID', 'isAllowedLoginByEmailAndId = true', False, True],
-    #             ['Логин', 'isAllowedLoginByLogin = false', False, True],
-    #             ['Ввод кода страны вручную', 'isAllowedCustomPhoneCodeInput = true', False, True],
-    #             ['Через соц. сети', 'isAllowedLoginBySocial = false', False, True],
-    #             ['По телефону по умолчанию', 'isDefaultLoginByPhone = true', False, True],
-    #             ['E-mail и ID', 'isAllowedLoginByEmailAndId = true', False, True],
-    #             ['Логин', 'isAllowedLoginByLogin = false', False, True],
-    #             ['Ввод кода страны вручную', 'isAllowedCustomPhoneCodeInput = true', False, True],
-    #             ['Через соц. сети', 'isAllowedLoginBySocial = false', False, True],
-    #             ['По телефону по умолчанию', 'isDefaultLoginByPhone = true', False, True],
-    #             ['E-mail и ID', 'isAllowedLoginByEmailAndId = true', False, True],
-    #             ['Логин', 'isAllowedLoginByLogin = false', False, True],
-    #             ['Ввод кода страны вручную', 'isAllowedCustomPhoneCodeInput = true', False, True],
-    #             ['Через соц. сети', 'isAllowedLoginBySocial = false', False, True],
-    #             ['По телефону по умолчанию', 'isDefaultLoginByPhone = true', False, True],
-    #             ['E-mail и ID', 'isAllowedLoginByEmailAndId = true', False, True],
-    #             ['Логин', 'isAllowedLoginByLogin = false', False, True],
-    #             ['Ввод кода страны вручную', 'isAllowedCustomPhoneCodeInput = true', False, True],
-    #             ['Через соц. сети', 'isAllowedLoginBySocial = false', False, True],
-    #             ['По телефону по умолчанию', 'isDefaultLoginByPhone = true', False, True],
-    #             ['E-mail и ID', 'isAllowedLoginByEmailAndId = true', False, True],
-    #             ['Логин', 'isAllowedLoginByLogin = false', False, True],
-    #             ['Ввод кода страны вручную', 'isAllowedCustomPhoneCodeInput = true', False, True],
-    #             ['Через соц. сети', 'isAllowedLoginBySocial = false', False, True],
-    #             ['По телефону по умолчанию', 'isDefaultLoginByPhone = true', False, True],
-    #             ['E-mail и ID', 'isAllowedLoginByEmailAndId = true', False, True],
-    #             ['Логин', 'isAllowedLoginByLogin = false', False, True],
-    #             ['Ввод кода страны вручную', 'isAllowedCustomPhoneCodeInput = true', False, True],
-    #             ['Через соц. сети', 'isAllowedLoginBySocial = false', False, True],
-    #             ['По телефону по умолчанию', 'isDefaultLoginByPhone = true', False, True],
-    #             ['E-mail и ID', 'isAllowedLoginByEmailAndId = true', False, True],
-    #             ['Логин', 'isAllowedLoginByLogin = false', False, True],
-    #             ['Ввод кода страны вручную', 'isAllowedCustomPhoneCodeInput = true', False, True],
-    #             ['Через соц. сети', 'isAllowedLoginBySocial = false', False, True],
-    #             ['По телефону по умолчанию', 'isDefaultLoginByPhone = true', False, True],
-    #             ['E-mail и ID', 'isAllowedLoginByEmailAndId = true', False, True],
-    #             ['Логин', 'isAllowedLoginByLogin = false', False, True],
-    #             ['Ввод кода страны вручную', 'isAllowedCustomPhoneCodeInput = true', False, True],
-    #             ['Через соц. сети', 'isAllowedLoginBySocial = false', False, True],
-    #             ['По телефону по умолчанию', 'isDefaultLoginByPhone = true', False, True],
-    #             ['E-mail и ID', 'isAllowedLoginByEmailAndId = true', False, True],
-    #             ['Логин', 'isAllowedLoginByLogin = false', False, True],
-    #             ['Ввод кода страны вручную', 'isAllowedCustomPhoneCodeInput = true', False, True],
-    #             ['Через соц. сети', 'isAllowedLoginBySocial = false', False, True],
-    #             ['По телефону по умолчанию', 'isDefaultLoginByPhone = true', False, True],
-    #             ['E-mail и ID', 'isAllowedLoginByEmailAndId = true', False, True],
-    #             ['Логин', 'isAllowedLoginByLogin = false', False, True],
-    #             ['Ввод кода страны вручную', 'isAllowedCustomPhoneCodeInput = true', False, True],
-    #             ['Через соц. сети', 'isAllowedLoginBySocial = false', False, True]
-    #             ]
-    
         
     row_list = ['Name', 'CMS key', 'Основа', f'{partner_name}']
-    col_list = [[], [], [], []]
-    col_list[2] = sheet.col_values(13)
+    col_list = []
     
+    name_col = sheet.col_values(3)
+    key_col = sheet.col_values(11)
+    main_col = sheet.col_values(13)
+    indx = partners.index(partner_name)
+    partner_col = sheet.col_values(13 + indx)
+
+    for i in range(0, len(name_col)):
+        temp_list_add_to_col_list = []
+        temp_list_add_to_col_list.append(name_col[i])
+        temp_list_add_to_col_list.append(key_col[i])
+        temp_list_add_to_col_list.append(main_col[i])
+        temp_list_add_to_col_list.append(partner_col[i])
+        col_list.append(temp_list_add_to_col_list)
     print(col_list)
+    # https://docs.google.com/spreadsheets/d/1Ebof_JtrKXJiUmCKPnP_tbWAtfGjA-cINeQXhbxkuzQ/edit#gid=1628117538
     return row_list, col_list
 
-def get_partner_names():
+def create_partner_list():
     temp_list = sheet.row_values(1)
     except_list = ['','Функционал на сайте', 'Базовый', 'Android', 'iOS', 'Ключ в CMS', 'Настраивается']
     partners = []
-    
     for i in temp_list:
         if i not in partners:
             if i not in except_list:
                 partners.append(i)
-    
+    return partners
+
+def get_partner_names():
     layout = [
         [sg.Text(f"Choose partner (available = {len(partners)})")],
         [sg.DropDown(values=partners, default_value=partners[0], auto_size_text=True, key='-DROPDOWN-')],
@@ -175,6 +101,7 @@ if __name__ == '__main__':
     client = gspread.authorize(creds)
     # sheet = client.open("geo_list").sheet1
     sheet = client.open("Характеристики (сайты и приложения)").sheet1
+    partners = create_partner_list()
     partner_name = get_partner_names()
     
     
@@ -187,7 +114,7 @@ if __name__ == '__main__':
     # основа
     # print(sheet.col_values(13))
     
-    print(sheet.col_values(14))
+    # print(sheet.col_values(14))
     
 
 

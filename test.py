@@ -27,19 +27,22 @@
 
 
 
-col_list = [[], [], [], []]
-test = ['123']
+name_col = ['wasa', 'petia', 'nataly']
+key_col = ['isDefaultLoginByPhone = true', 'isAllowedCustomPhoneCodeInput = true', 'ReferalLink = ""']
+main_col = ['xBet', True, False]
+partner_col = ['xBetTm', False, False]
+col_list = []
 
-col_list[2] = test
 
 
+for i in range(0, len(name_col)):
+    temp_list_add_to_col_list = []
+    temp_list_add_to_col_list.append(name_col[i])
+    temp_list_add_to_col_list.append(key_col[i])
+    temp_list_add_to_col_list.append(main_col[i])
+    temp_list_add_to_col_list.append(partner_col[i])
+    col_list.append(temp_list_add_to_col_list)
 print(col_list)
-# dd_list = ['Ключ в CMS', '', '', '', '', '', '', '', 'hasSnapshot = true', 'ReferalLink = ""', 'ReferalLink = ""', 'isBettingEnabled = true', 'BettingEnabledGeo = string_array']
-# print(dd_list[1:])
-    
-
-
-
 
 # import PySimpleGUI as sg
 
