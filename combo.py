@@ -9,6 +9,7 @@ from tkinter import filedialog
 import json
 import ctypes
 import keyboard
+import threading
 sg.theme('SystemDefault1')
 keyMain = '5a677564567332496852716157716a376f774d774e5763314d766b6a36477548'
 
@@ -81,7 +82,10 @@ def get_partner_names():
             [sg.Text(f"Choose partner (available = {len(partners)})")],
             [sg.Input(size=40, key='SEARCH', enable_events=True)],
             [sg.Listbox(partners, size=(40, 15), select_mode=sg.LISTBOX_SELECT_MODE_SINGLE, key='LISTBOX')],
-            [sg.Button('Submit'), sg.Button(sg.SYMBOL_DOWN, key='EXPAND')],
+            [sg.Text('Remote Config')],
+            [sg.Input('', key='HEX')],
+            [sg.Button('Submit')],
+            # [sg.Button('Submit'), sg.Button(sg.SYMBOL_DOWN, key='EXPAND')],
         ]
         window = sg.Window('choose partner', layout, finalize=True)
         # window['SEARCH'].bind("<Return>", "+RETURN")
@@ -90,18 +94,21 @@ def get_partner_names():
             if event in (sg.WIN_CLOSED, 'Exit'):
                 break
 
-            if event == 'EXPAND':
-                hex_main()
-
             search = values['SEARCH']
             if values['SEARCH'] != '':
-                new_values = [x for x in partners if search in x]
+                new_values = [x for x in partners if search.title() in x]
                 window.Element('LISTBOX').Update(new_values)
             else:
                 window.Element('LISTBOX').Update(partners)
             
             if event == 'Submit':
                 selected = values['LISTBOX']
+                try:
+                    data = json.loads(values['HEX'])
+                    ivMain = data['data']['ivHex']
+                    decodeConfig(data['data']['dataHex'], keyMain, ivMain)
+                except:
+                    pass
                 return selected
         window.close()
 def show_tablet():
@@ -132,20 +139,12 @@ def show_tablet():
     
     while True:
         event, value = window.read()
-        # s_val = value['tablet']
-                
         try:
             window.TKroot.title(col_list[value['tablet']])
         except(TypeError):
             pass
-        
         if event == "Exit" or event == sg.WIN_CLOSED:
             break
-        
-        # if event == 'tablet':
-        #     print(col_list[value['tablet']])
-        
-        # re_val = value['tablet']
         if '+CLICKED+' in event:
             try:
                 window.TKroot.title(col_list[value['tablet']])
@@ -727,7 +726,7 @@ def hex_main():
     startMenu('')
 
 if __name__ == '__main__':
-    sg.theme('Dark2')
+    sg.theme('DarkGrey15')
     scope = ['https://www.googleapis.com/auth/spreadsheets',
             "https://www.googleapis.com/auth/drive.file",
             "https://www.googleapis.com/auth/drive"
