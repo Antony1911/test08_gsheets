@@ -8,6 +8,8 @@ def get_correct_name_list(name_list):
     for sub_list in name_list:
         sub_list_index = name_list.index(sub_list)
         
+        # sg.Print(sub_list_index)
+        
         temp_list = []
         for sub in sub_list:
             sub_index = sub_list.index(sub)
@@ -35,21 +37,27 @@ def get_checklist_for_partner():
     row_list = ['Name', 'CMS key', 'Основа', f'{partner_name}', '']
     col_list = []
     
-    get_name_col = sheet.get('B:F')
+    get_name_col = sheet.get('A:E')
     name_col = get_correct_name_list(get_name_col)
+    sg.Print(name_col)
+    
     
     key_col = sheet.col_values(11)
-    main_col = sheet.col_values(13)
+    sg.Print(key_col)
+    
+    main_col = sheet.col_values(12)
     indx = partners.index(partner_name)
-    partner_col = sheet.col_values(13 + indx)
+    partner_col = sheet.col_values(12 + indx)
 
     for i in range(0, 435):
-        temp_list_add_to_col_list = []
-        temp_list_add_to_col_list.append(name_col[i])
-        temp_list_add_to_col_list.append(key_col[i])
-        temp_list_add_to_col_list.append(main_col[i])
-        temp_list_add_to_col_list.append(partner_col[i])
-        
+        try:
+            temp_list_add_to_col_list = []
+            temp_list_add_to_col_list.append(name_col[i])
+            temp_list_add_to_col_list.append(key_col[i])
+            temp_list_add_to_col_list.append(main_col[i])
+            temp_list_add_to_col_list.append(partner_col[i])
+        except:
+            pass
         col_list.append(temp_list_add_to_col_list)
     print(col_list)
     # https://docs.google.com/spreadsheets/d/1Ebof_JtrKXJiUmCKPnP_tbWAtfGjA-cINeQXhbxkuzQ/edit#gid=1628117538
@@ -161,6 +169,17 @@ if __name__ == '__main__':
     print(partner_name)
     show_tablet()
 
+
+
+
+    # client2 = gspread.authorize(creds)
+    # sheet2 = client2.open_by_key('1ZwR4xB1dwYZJRdCdBGWNQ3lJ94BKQQobWmxjTcqmgIM')
+    # sh = client2.create('A new spreadsheet')
+    
+    
+    # spreadsheet = client.open("The name of your spreadsheet")
+    # worksheet = spreadsheet.add_worksheet(title="A worksheet", rows="100", cols="20")
+    
     # ключ смс
     # print(sheet.col_values(11))
     

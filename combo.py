@@ -57,7 +57,7 @@ def get_checklist_for_partner():
     indx = partners.index(partner_name)
     partner_col = sheet.col_values(13 + indx)
     
-    for i in range(0, 435):
+    for i in range(0, 400):
         temp_list_add_to_col_list = []
         temp_list_add_to_col_list.append(name_col[i])
         temp_list_add_to_col_list.append(key_col[i])

@@ -3,6 +3,8 @@ from Crypto.Cipher import AES
 import getpass
 import PySimpleGUI as sg
 from tkinter import *
+import tkinter.ttk as ttk
+
 from tkinter import filedialog
 import json
 import ctypes
@@ -111,7 +113,14 @@ def resultWindow(resultText, iv):
     #to create a window
     #root window is the parent window
     root = Tk()
+    # ss = ttk.Style().theme_names()
+    # ttk.Style().theme_use('winnative')
+    
+    # print(ss)
+    
+    # root.configure(bg='blue')
     fram = Frame(root)
+    
     
     root.title('RemoteConfig v.0.21')
     root.geometry("700x900+700+40")

@@ -15,29 +15,29 @@
 # ----------------
 # this
 # ----------------
-import tkinter as tk
-import tksheet
-top = tk.Tk()
-sheet = tksheet.Sheet(top)
-sheet.grid()
-sheet.set_sheet_data([[f"{ri+cj}" for cj in range(4)] for ri in range(1)])
-# table enable choices listed below:
-sheet.enable_bindings(("single_select",
-                       "row_select",
-                       "column_width_resize",
-                       "arrowkeys",
-                       "right_click_popup_menu",
-                       "rc_select",
-                       "rc_insert_row",
-                       "rc_delete_row",
-                       "copy",
-                       "cut",
-                       "paste",
-                       "delete",
-                       "undo",
-                    #    "edit_cell"
-                       ))
-top.mainloop()
+# import tkinter as tk
+# import tksheet
+# top = tk.Tk()
+# sheet = tksheet.Sheet(top)
+# sheet.grid()
+# sheet.set_sheet_data([[f"{ri+cj}" for cj in range(4)] for ri in range(1)])
+# # table enable choices listed below:
+# sheet.enable_bindings(("single_select",
+#                        "row_select",
+#                        "column_width_resize",
+#                        "arrowkeys",
+#                        "right_click_popup_menu",
+#                        "rc_select",
+#                        "rc_insert_row",
+#                        "rc_delete_row",
+#                        "copy",
+#                        "cut",
+#                        "paste",
+#                        "delete",
+#                        "undo",
+#                     #    "edit_cell"
+#                        ))
+# top.mainloop()
 
 
 
@@ -115,3 +115,29 @@ top.mainloop()
 
 # gui.mainloop()
 # increment_count.status = 'exit'
+
+import os
+import PySimpleGUI as sg
+
+added_list = []
+
+path = os.path.dirname(os.path.realpath(__name__)) + "\\custom_methods.ini"
+if os.path.exists(path):
+    pass
+else:
+    itemsforlistbox = """[CUSTOM]\nhasPopularNew\nhasPromoRecommends"""
+    open(path, 'a').close()
+    open(path, 'a').write(itemsforlistbox)
+
+lines = '\nnew_method'
+
+with open(path, 'a') as f:
+    f.writelines(lines)
+# f = open(path, 'a').readlines()
+
+# for i in f:
+#     added_list.append(i)
+# print(added_list)
+
+
+
